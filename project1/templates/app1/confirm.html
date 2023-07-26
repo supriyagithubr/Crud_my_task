@@ -1,0 +1,17 @@
+{% extends 'base.html '%}
+{% block title %}
+<title>DELETTE CONFIRMATION</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        <p class="btn btn-warning"> do you really want to delete  this record???</p>
+        <p></p>
+        <input type="submit" value="yes" class="btn btn-success">
+        <button class="btn btn-danger"><a href="{% url 'showorder_url' %}">NO </a></button>
+    </form>
+</div>
+ {% endblock %}

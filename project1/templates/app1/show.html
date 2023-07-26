@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}
+
+    <title>SHOW ORDER</title>
+{% endblock %}
+
+
+{% block content %}
+
+<h1>show order</h1>
+<table class="table">
+  <caption>List of users</caption>
+  <thead>
+    <tr>
+      <th scope="col">ORDER ID</th>
+      <th scope="col">CUSTOMER NAME</th>
+      <th scope="col">O PRICE</th>
+      <th scope="col">O DATE</th>
+      <th scope="col">PRODUCT</th>
+      <th scope="col">ADDRESS</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody class="table-light">
+  {% for ord in obj %}
+  <tr>
+    <td>{{ord.o_id}}</td>
+    <td>{{ord.name}}</td>
+    <td>{{ord.o_price}}</td>
+    <td>{{ord.o_date}}</td>
+    <td>{{ord.product}}</td>
+    <td>{{ord.add}}</td>
+    <td><button class="btn btn-warning"><a href="{% url 'updateorder_url' ord.id  %}">UPDATE</a></button></td>
+    <td><button class="btn btn-danger"><a href="{% url 'deleteorder_url' ord.id %}">DELETE</a></button></td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
